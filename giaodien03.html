@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Giảng - EdMod Edu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .lesson-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #007bff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .user-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        
+        /* Content Area - 7/10 */
+        .content-area {
+            flex: 7;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Video Section */
+        .video-section {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        
+        .play-button {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .video-controls {
+            background-color: #f8f9fa;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .video-progress {
+            flex: 1;
+            margin: 0 15px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: #007bff;
+            width: 35%;
+        }
+        
+        .video-time {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        /* Course Materials */
+        .materials-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .material-list {
+            list-style: none;
+        }
+        
+        .material-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .material-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .material-icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+        
+        .material-info {
+            flex: 1;
+        }
+        
+        .material-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .material-size {
+            font-size: 0.8em;
+            color: #666;
+        }
+        
+        .download-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        
+        /* Rating Section */
+        .rating-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .rating-form {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .rating-stars {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .star {
+            font-size: 1.5em;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .star:hover,
+        .star.active {
+            color: #ffc107;
+        }
+        
+        .rating-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            min-height: 80px;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+        
+        .rating-submit {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .overall-rating {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffc107;
+        }
+        
+        .rating-count {
+            color: #666;
+        }
+        
+        /* Q&A Section */
+        .qa-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .question-form {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            min-height: 60px;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+        
+        .question-submit {
+            background-color: #17a2b8;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .qa-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .answer {
+            color: #666;
+            line-height: 1.5;
+            padding-left: 20px;
+            border-left: 3px solid #17a2b8;
+        }
+        
+        .qa-meta {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        /* Right Sidebar - 3/10 */
+        .right-sidebar {
+            flex: 3;
+        }
+        
+        .outline-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+        
+        .outline-list {
+            list-style: none;
+        }
+        
+        .outline-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .outline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .outline-item:hover {
+            padding-left: 10px;
+            color: #007bff;
+        }
+        
+        .outline-item.active {
+            color: #007bff;
+            font-weight: bold;
+            padding-left: 10px;
+            border-left: 3px solid #007bff;
+        }
+        
+        .outline-number {
+            display: inline-block;
+            width: 25px;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .outline-duration {
+            font-size: 0.8em;
+            color: #999;
+            margin-left: 10px;
+        }
+        
+        .outline-item.completed .outline-number {
+            color: #28a745;
+        }
+        
+        .outline-item.completed .outline-number:after {
+            content: " ✓";
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="lesson-title">
+                📚 Bài 3: HTML Cơ Bản - Tags và Structure
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">ND</div>
+                <div class="user-name">Nguyễn Duy</div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Content Area - 7/10 -->
+        <main class="content-area">
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div>
+                            <div class="play-button">▶️</div>
+                            <div>HTML Cơ Bản - Tags và Structure</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-controls">
+                    <button style="background: none; border: none; font-size: 1.2em; cursor: pointer;">⏪</button>
+                    <button style="background: none; border: none; font-size: 1.2em; cursor: pointer;">▶️</button>
+                    <button style="background: none; border: none; font-size: 1.2em; cursor: pointer;">⏩</button>
+                    <div class="video-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="video-time">12:35 / 35:20</div>
+                    <button style="background: none; border: none; font-size: 1.2em; cursor: pointer;">🔇</button>
+                    <button style="background: none; border: none; font-size: 1.2em; cursor: pointer;">⚙️</button>
+                    <button style="background: none; border: none; font-size: 1.2em; cursor: pointer;">🔳</button>
+                </div>
+            </div>
+            
+            <!-- Course Materials -->
+            <div class="materials-section">
+                <h2 class="section-title">📁 Giáo trình và tài liệu</h2>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <div class="material-icon">📄</div>
+                        <div class="material-info">
+                            <div class="material-name">HTML Tags Reference.pdf</div>
+                            <div class="material-size">2.3 MB • PDF</div>
+                        </div>
+                        <button class="download-btn">Tải xuống</button>
+                    </li>
+                    <li class="material-item">
+                        <div class="material-icon">💻</div>
+                        <div class="material-info">
+                            <div class="material-name">HTML_Exercise.zip</div>
+                            <div class="material-size">156 KB • ZIP</div>
+                        </div>
+                        <button class="download-btn">Tải xuống</button>
+                    </li>
+                    <li class="material-item">
+                        <div class="material-icon">🎥</div>
+                        <div class="material-info">
+                            <div class="material-name">Demo Videos.mp4</div>
+                            <div class="material-size">45.6 MB • MP4</div>
+                        </div>
+                        <button class="download-btn">Tải xuống</button>
+                    </li>
+                    <li class="material-item">
+                        <div class="material-icon">🔗</div>
+                        <div class="material-info">
+                            <div class="material-name">Useful HTML Resources</div>
+                            <div class="material-size">Link • Web</div>
+                        </div>
+                        <button class="download-btn">Xem</button>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Rating Section -->
+            <div class="rating-section">
+                <h2 class="section-title">⭐ Đánh giá chất lượng bài giảng</h2>
+                
+                <div class="rating-summary">
+                    <div class="overall-rating">4.8</div>
+                    <div>
+                        <div style="color: #ffc107; font-size: 1.2em;">★★★★★</div>
+                        <div class="rating-count">234 đánh giá</div>
+                    </div>
+                </div>
+                
+                <div class="rating-form">
+                    <div class="rating-stars">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                    <textarea class="rating-textarea" placeholder="Chia sẻ cảm nhận của bạn về bài giảng này..."></textarea>
+                    <button class="rating-submit">Gửi đánh giá</button>
+                </div>
+            </div>
+            
+            <!-- Q&A Section -->
+            <div class="qa-section">
+                <h2 class="section-title">❓ Hỏi đáp với giáo viên</h2>
+                
+                <div class="question-form">
+                    <textarea class="question-textarea" placeholder="Đặt câu hỏi cho giáo viên về nội dung bài giảng..."></textarea>
+                    <button class="question-submit">Gửi câu hỏi</button>
+                </div>
+                
+                <div class="qa-item">
+                    <div class="question">
+                        📝 Làm thế nào để phân biệt giữa <div> và <span>?
+                    </div>
+                    <div class="answer">
+                        <div> là block-level element, chiếm toàn bộ chiều rộng và bắt đầu dòng mới. <span> là inline element, chỉ chiếm không gian cần thiết và nằm trên cùng dòng với các element khác. Sử dụng <div> cho các khối lớn, <span> cho các phần nhỏ trong văn bản.</div>
+                        <div class="qa-meta">Giáo viên trả lời • 2 giờ trước</div>
+                    </div>
+                </div>
+                
+                <div class="qa-item">
+                    <div class="question">
+                        📝 Tại sao cần sử dụng semantic tags như <header>, <nav>?
+                    </div>
+                    <div class="answer">
+                        Semantic tags giúp code dễ đọc hơn, tốt cho SEO, và hỗ trợ accessibility cho người dùng khuyết tật. Screen readers có thể hiểu được cấu trúc trang web tốt hơn khi có semantic tags.</div>
+                    <div class="qa-meta">Giáo viên trả lời • 5 giờ trước</div>
+                </div>
+                
+                <div class="qa-item">
+                    <div class="question">
+                        📝 Làm sao để validate HTML?
+                    </div>
+                    <div class="answer">
+                        Bạn có thể sử dụng W3C Validator online tại validator.w3.org hoặc cài đặt extension HTML Validator trên browser. Ngoài ra, VS Code cũng có các extension giúp validate HTML trong quá trình code.</div>
+                    <div class="qa-meta">Giáo viên trả lời • 1 ngày trước</div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Right Sidebar - 3/10 -->
+        <aside class="right-sidebar">
+            <div class="outline-section">
+                <h2 class="section-title">📋 Outline bài học</h2>
+                <ul class="outline-list">
+                    <li class="outline-item completed">
+                        <span class="outline-number">1</span>
+                        Giới thiệu khóa học
+                        <span class="outline-duration">15:20</span>
+                    </li>
+                    <li class="outline-item completed">
+                        <span class="outline-number">2</span>
+                        Cài đặt môi trường
+                        <span class="outline-duration">25:30</span>
+                    </li>
+                    <li class="outline-item active">
+                        <span class="outline-number">3</span>
+                        HTML cơ bản
+                        <span class="outline-duration">35:20</span>
+                    </li>
+                    <li class="outline-item">
+                        <span class="outline-number">4</span>
+                        CSS styling
+                        <span class="outline-duration">42:15</span>
+                    </li>
+                    <li class="outline-item">
+                        <span class="outline-number">5</span>
+                        JavaScript fundamentals
+                        <span class="outline-duration">55:40</span>
+                    </li>
+                    <li class="outline-item">
+                        <span class="outline-number">6</span>
+                        DOM manipulation
+                        <span class="outline-duration">38:25</span>
+                    </li>
+                    <li class="outline-item">
+                        <span class="outline-number">7</span>
+                        Project thực tế
+                        <span class="outline-duration">1:20:30</span>
+                    </li>
+                    <li class="outline-item">
+                        <span class="outline-number">8</span>
+                        Deploy và hosting
+                        <span class="outline-duration">28:45</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    
+    <script>
+        // Rating stars interaction
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.dataset.rating;
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.textContent = '★';
+                        s.classList.add('active');
+                    } else {
+                        s.textContent = '☆';
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Outline item click
+        const outlineItems = document.querySelectorAll('.outline-item');
+        outlineItems.forEach(item => {
+            item.addEventListener('click', function() {
+                outlineItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
