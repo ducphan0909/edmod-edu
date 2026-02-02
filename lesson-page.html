@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài giảng - EdMod Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="lesson-title">Buổi 1: Giới thiệu Lập trình Web</h1>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <img src="https://picsum.photos/seed/user123/40/40.jpg" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Nguyễn Hoàng Nam</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="lesson-container">
+        <!-- Main Content (7/10) -->
+        <main class="lesson-main">
+            <!-- Video Player -->
+            <section class="video-player">
+                <div class="video-container">
+                    <video controls poster="https://picsum.photos/seed/lesson123/800/450.jpg">
+                        <source src="#" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ video.
+                    </video>
+                    <div class="video-controls">
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="control-buttons">
+                            <button class="play-pause"><i class="fas fa-play"></i></button>
+                            <div class="time-display">00:00 / 45:30</div>
+                            <button class="fullscreen"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Course Materials -->
+            <section class="lesson-materials">
+                <h3>Giáo trình & Tài liệu</h3>
+                <div class="material-grid">
+                    <div class="material-card">
+                        <div class="material-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Tài liệu PDF - Buổi 1</h4>
+                            <p>Giới thiệu tổng quan về lập trình web</p>
+                            <div class="material-meta">
+                                <span><i class="fas fa-file"></i> 15 trang</span>
+                                <span><i class="fas fa-download"></i> 234 lượt tải</span>
+                            </div>
+                            <button class="download-btn">Tải về</button>
+                        </div>
+                    </div>
+                    
+                    <div class="material-card">
+                        <div class="material-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Mã nguồn thực hành</h4>
+                            <p>Code mẫu cho bài tập buổi 1</p>
+                            <div class="material-meta">
+                                <span><i class="fas fa-code"></i> HTML/CSS/JS</span>
+                                <span><i class="fas fa-download"></i> 156 lượt tải</span>
+                            </div>
+                            <button class="download-btn">Tải về</button>
+                        </div>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-icon">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Slide bài giảng</h4>
+                            <p>Slide trình chiếu buổi học</p>
+                            <div class="material-meta">
+                                <span><i class="fas fa-image"></i> 25 slides</span>
+                                <span><i class="fas fa-download"></i> 89 lượt tải</span>
+                            </div>
+                            <button class="download-btn">Tải về</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rating Section -->
+            <section class="rating-section">
+                <h3>Đánh giá chất lượng bài giảng</h3>
+                <div class="rating-container">
+                    <div class="rating-stars">
+                        <span class="rating-label">Đánh giá của bạn:</span>
+                        <div class="stars">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                        <span class="rating-text">Chọn sao để đánh giá</span>
+                    </div>
+                    <div class="rating-summary">
+                        <div class="average-rating">
+                            <span class="rating-number">4.7</span>
+                            <div class="stars-display">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="total-ratings">(234 đánh giá)</span>
+                        </div>
+                        <div class="rating-breakdown">
+                            <div class="rating-bar">
+                                <span>5 sao</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 65%"></div>
+                                </div>
+                                <span>152</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>4 sao</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 25%"></div>
+                                </div>
+                                <span>58</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>3 sao</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 8%"></div>
+                                </div>
+                                <span>19</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>2 sao</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 2%"></div>
+                                </div>
+                                <span>5</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>1 sao</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 0%"></div>
+                                </div>
+                                <span>0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Q&A Section -->
+            <section class="qa-section">
+                <h3>Hỏi đáp với giáo viên</h3>
+                <div class="qa-form">
+                    <textarea placeholder="Đặt câu hỏi cho giáo viên..." rows="3"></textarea>
+                    <button class="submit-question">Gửi câu hỏi</button>
+                </div>
+                <div class="qa-list">
+                    <div class="qa-item">
+                        <div class="question">
+                            <img src="https://picsum.photos/seed/student123/40/40.jpg" alt="Student">
+                            <div class="question-content">
+                                <div class="question-header">
+                                    <span class="student-name">Trần Văn An</span>
+                                    <span class="question-time">1 giờ trước</span>
+                                </div>
+                                <p>Làm thế nào để tối ưu performance cho website?</p>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <img src="https://picsum.photos/seed/mentor123/40/40.jpg" alt="Mentor">
+                            <div class="answer-content">
+                                <div class="answer-header">
+                                    <span class="mentor-name">TS. Trần Văn Bình</span>
+                                    <span class="answer-time">30 phút trước</span>
+                                </div>
+                                <p>Bạn có thể tối ưu performance bằng cách: 1) Minify CSS/JS, 2) Optimize images, 3) Use CDN, 4) Enable caching. Mình sẽ chi tiết hơn trong buổi 3.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">
+                            <img src="https://picsum.photos/seed/student456/40/40.jpg" alt="Student">
+                            <div class="question-content">
+                                <div class="question-header">
+                                    <span class="student-name">Lê Thị Mai</span>
+                                    <span class="question-time">3 giờ trước</span>
+                                </div>
+                                <p>Cần chuẩn bị những gì trước khi học khóa học này?</p>
+                        </div>
+                        </div>
+                        <div class="answer">
+                            <img src="https://picsum.photos/seed/mentor123/40/40.jpg" alt="Mentor">
+                            <div class="answer-content">
+                                <div class="answer-header">
+                                    <span class="mentor-name">TS. Trần Văn Bình</span>
+                                    <span class="answer-time">2 giờ trước</span>
+                                </div>
+                                <p>Bạn chỉ cần có laptop và kết nối internet. Không cần kinh nghiệm lập trình trước đó, khóa học được thiết kế cho người mới bắt đầu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Sidebar (3/10) -->
+        <aside class="lesson-sidebar">
+            <div class="outline-section">
+                <h4>Outline bài học</h4>
+                <div class="lesson-outline">
+                    <div class="outline-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="outline-content">
+                            <span class="lesson-number">Buổi 1</span>
+                            <span class="lesson-name">Giới thiệu Lập trình Web</span>
+                            <span class="lesson-duration">45:30</span>
+                        </div>
+                    </div>
+                    <div class="outline-item current">
+                        <i class="fas fa-play-circle"></i>
+                        <div class="outline-content">
+                            <span class="lesson-number">Buổi 2</span>
+                            <span class="lesson-name">HTML5 & Semantic Tags</span>
+                            <span class="lesson-duration">52:15</span>
+                        </div>
+                    </div>
+                    <div class="outline-item">
+                        <i class="fas fa-lock"></i>
+                        <div class="outline-content">
+                            <span class="lesson-number">Buổi 3</span>
+                            <span class="lesson-name">CSS3 & Responsive Design</span>
+                            <span class="lesson-duration">48:20</span>
+                        </div>
+                    </div>
+                    <div class="outline-item">
+                        <i class="fas fa-lock"></i>
+                        <div class="outline-content">
+                            <span class="lesson-number">Buổi 4</span>
+                            <span class="lesson-name">JavaScript Basics</span>
+                            <span class="lesson-duration">55:10</span>
+                        </div>
+                    </div>
+                    <div class="outline-item">
+                        <i class="fas fa-lock"></i>
+                        <div class="outline-content">
+                            <span class="lesson-number">Buổi 5</span>
+                            <span class="lesson-name">DOM Manipulation</span>
+                            <span class="lesson-duration">50:45</span>
+                        </div>
+                    </div>
+                    <div class="outline-item">
+                        <i class="fas fa-lock"></i>
+                        <div class="outline-content">
+                            <span class="lesson-number">Buổi 6</span>
+                            <span class="lesson-name">Async JavaScript & APIs</span>
+                            <span class="lesson-duration">58:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="progress-section">
+                <h4>Tiến độ học tập</h4>
+                <div class="progress-info">
+                    <div class="progress-circle">
+                        <svg width="80" height="80">
+                            <circle cx="40" cy="40" r="35" fill="none" stroke="#e0e0e0" stroke-width="6"></circle>
+                            <circle cx="40" cy="40" r="35" fill="none" stroke="#4CAF50" stroke-width="6" 
+                                    stroke-dasharray="220" stroke-dashoffset="154" stroke-linecap="round"></circle>
+                        </svg>
+                        <span class="progress-text">30%</span>
+                    </div>
+                    <div class="progress-details">
+                        <p><strong>2/12</strong> buổi đã hoàn thành</p>
+                        <p><strong>5/20</strong> bài tập đã nộp</p>
+                        <p><strong>Thời gian:</strong> 8h 25m</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Lesson -->
+            <div class="next-lesson">
+                <h4>Bài học tiếp theo</h4>
+                <div class="next-lesson-card">
+                    <img src="https://picsum.photos/seed/nextlesson/80/60.jpg" alt="Next Lesson">
+                    <div class="next-lesson-info">
+                        <h5>Buổi 2: HTML5 & Semantic Tags</h5>
+                        <p>Tìm hiểu về các thẻ HTML5 mới và semantic markup</p>
+                        <button class="continue-btn">Tiếp tục học</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
