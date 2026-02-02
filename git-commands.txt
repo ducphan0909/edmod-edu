@@ -1,0 +1,14 @@
+# Các lệnh Git để push CV lên GitHub
+# Chạy lần lượt các lệnh sau:
+
+git init
+git add .
+git commit -m "Initial commit: Add personal CV with orange-red theme"
+
+# Thay thế URL bên dưới bằng URL repo của bạn
+git remote add origin https://github.com/DUCPHAN0909/cv-personal.git
+git branch -M main
+git push -u origin main
+
+# Sau khi push xong, bạn có thể xem CV tại:
+# https://DUCPHAN0909.github.io/cv-personal/
